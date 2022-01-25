@@ -6,6 +6,7 @@ public class Employee {
 
   public static int numberOfEmployees;
 
+  // constructors overloading
   public Employee(int baseSalary) {
     this(baseSalary, 0);
   }
