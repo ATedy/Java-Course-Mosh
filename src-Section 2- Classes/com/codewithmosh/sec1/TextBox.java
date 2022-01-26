@@ -1,4 +1,4 @@
-package com.codewithmosh;
+package com.codewithmosh.sec1;
 
 public class TextBox {
   public String text = "";
