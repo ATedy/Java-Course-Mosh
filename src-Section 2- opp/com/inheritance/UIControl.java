@@ -1,6 +1,6 @@
 package com.inheritance;
 
-public class UIControl {
+public abstract class  UIControl {
     private boolean isEnabled = true;
 
 
@@ -9,9 +9,9 @@ public class UIControl {
 //        System.out.println("UIControl");
 //    }
 
-    public void render() {
 
-    }
+    // Abstract methods doesn't have implementation
+    public abstract void render();
 
     public void enabled() {
          isEnabled = true;
