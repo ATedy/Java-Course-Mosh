@@ -1,18 +1,14 @@
 package com.inheritance;
 
-import com.oop.sec1.TextBox;
+import com.oop.sec1.Point;
 
 public class Main {
     public static void main(String[] args) {
-        var control = new UIControl(true);
-        var textBox = new TextBox();
-        show(control);
-    }
-    private static void show(UIControl control) {
-        if(control instanceof TextBox){
-            var textBox = (TextBox) control;
-            textBox.setText("Hello World");
-        }
-        System.out.println(control);
+        var point1 = new Point(1,2);
+        var point2 = new Point(1,2);
+         System.out.println(point1.equals(point1));
+         //hashcode is same based on the contents of the object not the default address as we override it
+        System.out.println(point1.hashCode());
+        System.out.println(point2.hashCode());
     }
 }
