@@ -1,4 +1,4 @@
-package com.mytube;
+package MyTubeProject.src.com.mytube;
 
 public class VideoDatabase {
     public void store(Video video) {

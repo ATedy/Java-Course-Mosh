@@ -1,4 +1,4 @@
-package com.mytube;
+package MyTubeProject.src.com.mytube;
 
 public class Main {
 
