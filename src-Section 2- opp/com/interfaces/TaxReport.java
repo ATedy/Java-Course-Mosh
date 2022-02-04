@@ -1,10 +1,11 @@
 package com.interfaces;
 
 public class TaxReport {
+    // dependency injection with constructor
     private TaxCalculator calculator;
 
-    public TaxReport() {
-        calculator = new TaxCalculator2018(100000);
+    public TaxReport(TaxCalculator calculator) {
+      this.calculator = calculator;
     }
 
   public void show() {
