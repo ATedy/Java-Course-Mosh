@@ -1,7 +1,6 @@
 package com.interfaces;
 
 public class TaxReport {
-    // dependency injection with methods
     private TaxCalculator calculator;
 
 //    public TaxReport(TaxCalculator calculator) {
