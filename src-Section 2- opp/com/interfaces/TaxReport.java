@@ -4,7 +4,7 @@ public class TaxReport {
     private TaxCalculator calculator;
 
     public TaxReport() {
-        calculator = new TaxCalculator(100000);
+        calculator = new TaxCalculator2018(100000);
     }
 
   public void show() {
