@@ -1,10 +1,8 @@
 package com.interfaces;
 
 public interface TaxCalculator {
-
-
      /**
-      -  interface for what not how
+      -  interface are used for what not how
       -  Avoid
        1. fields
        2.  Static methods
