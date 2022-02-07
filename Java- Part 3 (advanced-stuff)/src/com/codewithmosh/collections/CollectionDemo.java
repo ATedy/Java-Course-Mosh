@@ -1,4 +1,4 @@
-package com.codewithmosh.collections;
+package src.com.codewithmosh.collections;
 
 import java.util.ArrayList;
 import java.util.Collection;

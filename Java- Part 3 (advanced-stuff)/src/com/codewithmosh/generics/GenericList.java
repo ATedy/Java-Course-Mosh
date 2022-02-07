@@ -1,5 +1,3 @@
-package com.codewithmosh.generics;
-
 import java.util.Iterator;
 
 public class GenericList<T> implements Iterable<T> {

@@ -1,5 +1,3 @@
-package com.codewithmosh.executors;
-
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.concurrent.CompletableFuture;

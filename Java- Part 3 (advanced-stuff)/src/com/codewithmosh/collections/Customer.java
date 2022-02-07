@@ -1,5 +1,3 @@
-package com.codewithmosh.collections;
-
 public class Customer implements Comparable<Customer> {
   private String name;
   private String email;

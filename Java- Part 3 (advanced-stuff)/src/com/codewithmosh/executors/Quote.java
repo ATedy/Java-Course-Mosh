@@ -1,5 +1,3 @@
-package com.codewithmosh.executors;
-
 public class Quote {
   private final String site;
   private final int price;

@@ -1,5 +1,3 @@
-package com.codewithmosh.executors;
-
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;

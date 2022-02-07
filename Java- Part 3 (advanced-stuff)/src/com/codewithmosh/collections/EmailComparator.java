@@ -1,5 +1,3 @@
-package com.codewithmosh.collections;
-
 import java.util.Comparator;
 
 public class EmailComparator implements Comparator<Customer> {

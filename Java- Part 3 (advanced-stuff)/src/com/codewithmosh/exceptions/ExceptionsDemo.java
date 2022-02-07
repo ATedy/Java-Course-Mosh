@@ -1,5 +1,4 @@
-package com.codewithmosh.exceptions;
-
+package src.com.codewithmosh.exceptions;
 public class ExceptionsDemo {
   public static void show() {
     var account = new Account();

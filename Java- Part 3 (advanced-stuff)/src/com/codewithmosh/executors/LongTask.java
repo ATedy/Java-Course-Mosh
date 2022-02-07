@@ -1,5 +1,3 @@
-package com.codewithmosh.executors;
-
 public class LongTask {
   public static void simulate() {
     try {

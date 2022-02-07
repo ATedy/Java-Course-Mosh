@@ -1,4 +1,4 @@
-package com.codewithmosh.concurrency;
+package src.com.codewithmosh.concurrency;
 
 public class ThreadDemo {
   public static void show() {

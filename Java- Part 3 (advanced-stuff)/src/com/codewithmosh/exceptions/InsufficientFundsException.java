@@ -1,6 +1,4 @@
-package com.codewithmosh.exceptions;
-
-// Checked -> Exception
+package src.com.codewithmosh.exceptions;// Checked -> Exception
 // Unchecked (runtime) -> RuntimeException
 
 public class InsufficientFundsException extends Exception {

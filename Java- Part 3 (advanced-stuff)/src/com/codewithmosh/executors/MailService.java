@@ -1,5 +1,3 @@
-package com.codewithmosh.executors;
-
 import java.util.concurrent.CompletableFuture;
 
 public class MailService {

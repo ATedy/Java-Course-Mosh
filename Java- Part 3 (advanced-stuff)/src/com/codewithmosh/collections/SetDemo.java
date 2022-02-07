@@ -1,5 +1,3 @@
-package com.codewithmosh.collections;
-
 import java.util.*;
 
 public class SetDemo {

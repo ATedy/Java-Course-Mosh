@@ -1,4 +1,4 @@
-package com.codewithmosh.concurrency;
+package src.com.codewithmosh.concurrency;
 
 import java.util.concurrent.atomic.LongAdder;
 

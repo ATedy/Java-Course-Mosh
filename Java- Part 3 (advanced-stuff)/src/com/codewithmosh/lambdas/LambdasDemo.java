@@ -1,5 +1,3 @@
-package com.codewithmosh.lambdas;
-
 import java.util.function.UnaryOperator;
 
 public class LambdasDemo {
