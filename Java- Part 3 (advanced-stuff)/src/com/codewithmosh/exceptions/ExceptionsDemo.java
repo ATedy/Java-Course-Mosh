@@ -1,14 +1,17 @@
 package src.com.codewithmosh.exceptions;
 
-import java.util.logging.FileHandler;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class ExceptionsDemo {
     public static void show() {
-        sayHello(null);
-    }
-    var reader = new FileHandler("file.txt");
+        try {
+            var reader = new FileReader("file.txt");
+            System.out.println("File Opened");
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
 
-    public static void sayHello(String name) {
-        System.out.println(name.toLowerCase());
+
     }
 }
