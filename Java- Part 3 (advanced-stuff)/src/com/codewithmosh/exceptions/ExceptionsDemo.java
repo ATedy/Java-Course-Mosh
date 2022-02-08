@@ -1,30 +1,24 @@
 package src.com.codewithmosh.exceptions;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ExceptionsDemo {
     public static void show() {
-        // IN java before accessing an obj we have to inti it
-        FileReader reader = null;
-        try {
-             reader = new FileReader("file.txt");
+        /**
+         - try with resources, will it arguments and finally block won't be needed as it will be handled
+         implicitly by the J compiler and will implement the AutoClosable
+         - and we can create many objects by separating them using ;
+         */
+        try (
+                var reader = new FileReader("file.txt");
+                var writer = new FileWriter("file.txt");
+        ){
             var value = reader.read();
         }
         catch (IOException e){
             System.out.println("Couldn't read data");
-        }
-        //finaly will always executed
-        finally {
-            // the close method is throwing an IO exception
-            if (reader != null){
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
     }
 }
