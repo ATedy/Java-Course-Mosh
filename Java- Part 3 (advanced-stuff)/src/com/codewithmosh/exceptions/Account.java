@@ -1,19 +1,20 @@
 package src.com.codewithmosh.exceptions;
-import java.io.IOException;
 
 public class Account {
     private float balance;
-    public void deposit(float value) throws IOException{
+    public void deposit(float value){
         if (value <=0){
-            throw new IOException();
+            throw new IllegalArgumentException();
         }
     }
-    public void withdraw(float value) throws InsufficientFundsException {
-        if (value > balance){
-            throw new InsufficientFundsException();
-
-
-        }
-
+    public void withdraw(float value) throws AccountException {
+        if (value > balance)
+            throw new AccountException(new InsufficientFundsException());
+            /**
+             * - This shows how the code behind works
+             * var fundsException = new InsufficientFundsException();
+             *             var accountException = new AccountException();
+             *             accountException.initCause(fundsException);
+              */
     }
 }

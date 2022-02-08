@@ -7,8 +7,10 @@ public class ExceptionsDemo {
       var account = new Account();
         try {
             account.withdraw(10);
-        } catch (InsufficientFundsException e) {
-            System.out.println(e.getMessage());;
+        } catch (AccountException e) {
+            var cause = e.getCause();
+            System.out.println(cause.getMessage());
+//            e.printStackTrace();
         }
 
     }
