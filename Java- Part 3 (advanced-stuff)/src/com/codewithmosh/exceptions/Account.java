@@ -1,10 +1,12 @@
 package src.com.codewithmosh.exceptions;
 
+import java.io.IOException;
+
 public class Account {
-    public void deposit(float value){
-        // throwing an exception (defensive programming)
+    // letting caller of the classes may throw an IO exception and its part API
+    public void deposit(float value) throws IOException{
         if (value <=0){
-            throw new IllegalArgumentException();
+            throw new IOException();
         }
     }
 }
