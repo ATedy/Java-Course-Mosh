@@ -2,20 +2,29 @@ package src.com.codewithmosh.exceptions;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class ExceptionsDemo {
     public static void show() {
-        // when err occurs only one of the catch blocks will execute
+        // IN java before accessing an obj we have to inti it
+        FileReader reader = null;
         try {
-            var reader = new FileReader("file.txt");
+             reader = new FileReader("file.txt");
             var value = reader.read();
-            new SimpleDateFormat().parse("");
         }
-        // chaining exception in one with |
-        catch (IOException | ParseException e){
+        catch (IOException e){
             System.out.println("Couldn't read data");
+        }
+        //finaly will always executed
+        finally {
+            // the close method is throwing an IO exception
+            if (reader != null){
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
     }
 }
