@@ -1,6 +1,5 @@
 package src.com.codewithmosh.exceptions;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -10,11 +9,14 @@ public class ExceptionsDemo {
         try {
             var reader = new FileReader("file.txt");
             var value = reader.read();
-        } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-        }catch (IOException e){
+        }
+        catch (IOException e){
             System.out.println("Couldn't read data");
         }
+        // already caught in the above exceptions
+//        catch (FileNotFoundException ex) {
+//            System.out.println(ex.getMessage());
+//        }
 
 
     }
