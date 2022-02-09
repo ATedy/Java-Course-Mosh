@@ -1,0 +1,9 @@
+
+
+---- Summary ----
+
+- Generic classes/methods : for creating general purpose classes n methods w/c can be used with different kind of Objects
+- Type erasure: during compilation, will erase the generic type <T> with actual class, default being Object
+unless constraints are applied
+- we apply constraints with the extends kw and this ensures only given type will be used or its subtypes as arguments
+- WildCards: with wild cards we can typecast generic types
