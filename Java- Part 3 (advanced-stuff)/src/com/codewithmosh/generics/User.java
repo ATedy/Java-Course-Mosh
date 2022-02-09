@@ -10,4 +10,12 @@ public class User implements Comparable<User>{
     public int compareTo(User other) {
         return points - other.points;
     }
+
+    /**
+     *  we are overidding the to string method as it will simple display the string version of the reference
+     */
+    @Override
+    public String toString() {
+        return "Points = " + points;
+    }
 }
