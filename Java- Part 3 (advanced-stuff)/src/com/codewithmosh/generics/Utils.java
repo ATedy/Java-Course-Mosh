@@ -18,10 +18,10 @@ public class Utils {
      with use super for writing
      - but using the super kw we can only  write or store it in super class which is Object
      */
-    public static void printUsers
-    (GenericList<? super User> users){
-        GenericList<Object> temp = new GenericList<>();
-        Object x = users.get(0);
-
-    }
+//    public static void printUsers
+//    (GenericList<? super User> users){
+//        GenericList<Object> temp = new GenericList<>();
+//        Object x = users.get(0);
+//
+//    }
 }
