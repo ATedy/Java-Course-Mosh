@@ -16,11 +16,19 @@ public class MapDemo {
     map.put(c1.getEmail(), c1);
     map.put(c2.getEmail(), c2);
 
+    // iterating in Map
+    for(var key: map.keySet()){
+      System.out.println(key);
+    }
+    for(var entry: map.entrySet()){
+      System.out.println(entry);
+      System.out.println(entry.getValue());
+      System.out.println(entry.getKey());
+    }
+    for(var customer: map.values()){
+      System.out.println(customer);
+    }
 
-    var customer = map.get("e1");
-    var customer1 = map.getOrDefault("e10", unknown);
-    System.out.println(customer);
-    System.out.println(customer1);
   }
 
 }
