@@ -1,0 +1,9 @@
+   ---- Summary----
+
+   - Exceptions
+   1. checked: checked at compile time(we should expect and handle them before than
+   2. runtime: occurs when the program is running(programming errors)
+   3. errors: external errors
+
+   - We can create custom exceptions by subclassing accordingly
+   - We can chain/Wrap exceptions into a generic ones
