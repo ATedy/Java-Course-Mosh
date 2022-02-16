@@ -1,18 +1,19 @@
 package src.com.codewithmosh.collections;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
 
 public class collectionsDemo {
-
-
   public static void show(){
-    List<String> list = new ArrayList<>();
-    list.add("a");
-    list.add("b");
-    list.add("c");
-    list.add(0,"!");
-    System.out.println(list);
+    Collection<String> collection = new ArrayList<>();
+    Collections.addAll(collection, "a", "b", "c");
+    Collection<String> other = new ArrayList<>();
+    other.addAll(collection);
+
+    System.out.println(collection == other);
+    System.out.println(collection == other);
+
   }
 
 }
