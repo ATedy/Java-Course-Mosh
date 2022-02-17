@@ -1,17 +1,20 @@
 package src.com.codewithmosh.lambdas;
 
+import java.util.List;
+
 public class LambdasDemo {
- public LambdasDemo(String message) {
-
- }
- // new in here is used for constructor
   public  void show() {
-    greet(message -> new LambdasDemo(message));
-    greet(LambdasDemo::new);
+    List<Integer> list = List.of(1, 2, 3);
+
+    // Imperative programming
+    for (var item: list){
+      System.out.println(item);
+    }
+
+    // Declarative programming
+    list.forEach(item -> System.out.println(item));
 
   }
 
-  public static void greet(Printer printer) {
-    printer.print("Hello World");
-  }
+
 }
