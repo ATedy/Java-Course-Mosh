@@ -1,15 +1,16 @@
 package src.com.codewithmosh.lambdas;
 
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.function.Supplier;
 
+/**
+ * This supplier has specialization with primitive values and we have to call it using the get()
+ */
 public class LambdasDemo {
   public static void show() {
-    List<String> list = List.of("a", "b", "c");
-    Consumer<String> print = item -> System.out.println(item);
-    Consumer<String> printInUpperCase = item -> System.out.println(item.toUpperCase());
+    Supplier<Double> getRandom = () -> Math.random();
+    var random = getRandom.get();
+    System.out.println(random);
 
-   list.forEach(print.andThen(printInUpperCase));
   }
 
 
