@@ -1,1 +1,7 @@
 - Functional Interfaces: an interface with a single abstract method
+
+4 Types of Functional interfaces:
+  - Consumer: takes an argu and returns no result
+  - Supplier: takes no input and return a value
+  - Functions: map a value to a different value
+  - Predicate: takes an object and checks if an object satisfies some criteria(for filtering)

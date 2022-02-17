@@ -1,19 +1,15 @@
 package src.com.codewithmosh.lambdas;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class LambdasDemo {
-  public  void show() {
-    List<Integer> list = List.of(1, 2, 3);
+  public static void show() {
+    List<String> list = List.of("a", "b", "c");
+    Consumer<String> print = item -> System.out.println(item);
+    Consumer<String> printInUpperCase = item -> System.out.println(item.toUpperCase());
 
-    // Imperative programming
-    for (var item: list){
-      System.out.println(item);
-    }
-
-    // Declarative programming
-    list.forEach(item -> System.out.println(item));
-
+   list.forEach(print.andThen(printInUpperCase));
   }
 
 
