@@ -1,22 +1,18 @@
 package src.com.codewithmosh.lambdas;
 
 /**
- * new Printer Interface is anonymous inner class because
- - no name and its inside a class
+ * Lamda exp: If we have a functional interface we can represent our interface using lamda epx - No type declaration
+ * need as compiler will get it from the signature of the method passed.
  */
 public class LambdasDemo {
+
   public static void show() {
 
-    greet(new Printer() {
-      @Override
-      public void print(String message) {
-        System.out.println(message);
-
-      }
-    });
+    greet(message -> System.out.println(message));
 
   }
-  public  static void greet(Printer printer) {
+
+  public static void greet(Printer printer) {
     printer.print("Hello World");
   }
 }
