@@ -1,15 +1,13 @@
 package src.com.codewithmosh.lambdas;
 
-/**
- * Method references
- */
 public class LambdasDemo {
-  public  void print(String message) {}
+ public LambdasDemo(String message) {
 
+ }
+ // new in here is used for constructor
   public  void show() {
-    var demo = new LambdasDemo();
-    greet(message -> demo.print(message));
-    greet(demo::print);
+    greet(message -> new LambdasDemo(message));
+    greet(LambdasDemo::new);
 
   }
 
