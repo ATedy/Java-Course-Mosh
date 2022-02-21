@@ -11,24 +11,12 @@ public class StreamsDemo {
         new Movie("c", 30)
     );
 
-     // Using Collectors to convert to list, set, and hashMap
+    // summarizing collectors
    var result = movies.stream()
        .filter(m -> m.getLikes() > 10)
-       .collect(Collectors.toList());
-
-    var result1 = movies.stream()
-        .filter(m -> m.getLikes() > 10)
-        .collect(Collectors.toSet());
-
-    // key (title)
-    // value (likes)
-    var result2 = movies.stream()
-        .filter(m -> m.getLikes() > 10)
-        .collect(Collectors.toMap(m -> m.getTitle(), m -> m.getLikes()));
+       .collect(Collectors.summarizingInt(Movie::getLikes));
 
     System.out.println(result);
-    System.out.println(result1);
-    System.out.println(result2);
 
   }
 }
