@@ -1,7 +1,7 @@
 package src.com.codewithmosh.streams;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class StreamsDemo {
   public static void show() {
@@ -10,26 +10,25 @@ public class StreamsDemo {
         new Movie("b", 20),
         new Movie("c", 30)
     );
-    /**
-     *   optional class represents an object that may or may not have a value
-     *      how reducer works(it will accumulate the values
-     *      [10, 20, 30]
-     *      [30, 30]
-     *      [60]
-     *  so if we don't have some ) will be outputted
-     */
 
-   Optional<Integer> sum =  movies.stream()
-        .map(movie -> movie.getLikes())
-        .reduce(Integer::sum);
+     // Using Collectors to convert to list, set, and hashMap
+   var result = movies.stream()
+       .filter(m -> m.getLikes() > 10)
+       .collect(Collectors.toList());
 
-   // general purpose reduction with reduce method
-    Integer sum1 =  movies.stream()
-        .map(movie -> movie.getLikes())
-        .reduce(0, Integer::sum);
+    var result1 = movies.stream()
+        .filter(m -> m.getLikes() > 10)
+        .collect(Collectors.toSet());
 
-    System.out.println(sum.orElse(0));
-    System.out.println(sum1);
+    // key (title)
+    // value (likes)
+    var result2 = movies.stream()
+        .filter(m -> m.getLikes() > 10)
+        .collect(Collectors.toMap(m -> m.getTitle(), m -> m.getLikes()));
+
+    System.out.println(result);
+    System.out.println(result1);
+    System.out.println(result2);
 
   }
 }
