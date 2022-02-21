@@ -9,16 +9,10 @@ public class StreamsDemo {
         new Movie("b", 15),
         new Movie("c", 20)
     );
-
-    // 1000 movies
-    // 10 movies per page
-    // 3rd page
-    // skip(20) = skip((page -1 )  * pageSize )
-    // limit(10) = limit(pageSize)
-
+// takeWhile: it stops when it finds first element that matches the conditions
+// dropWhile: opposite of takeWhile, will filter out all elements that doesn't match the criteria
     movies.stream()
-        .skip(20)
-        .limit(10)
+        .takeWhile(m -> m.getLikes() < 30)
         .forEach(m -> System.out.println(m.getTitle()));
 
   }
