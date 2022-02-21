@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 
 public class StreamsDemo {
   public static void show() {
+    // Stream<List<x>> -> Stream<x>
    var stream =  Stream.of(List.of(1,2,3), List.of(4,5,6));
    stream
        .flatMap(list -> list.stream())
