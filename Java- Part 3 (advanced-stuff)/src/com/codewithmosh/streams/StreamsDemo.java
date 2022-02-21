@@ -1,7 +1,6 @@
 package src.com.codewithmosh.streams;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 public class StreamsDemo {
   public static void show() {
@@ -11,18 +10,16 @@ public class StreamsDemo {
         new Movie("c", 20)
     );
 
-    // Intermediate : map, filter
-    // Terminal: forEach
-     movies.stream()
-        .filter(movie -> movie.getLikes() >10)
-        .forEach(m -> System.out.println(m));
+    // 1000 movies
+    // 10 movies per page
+    // 3rd page
+    // skip(20) = skip((page -1 )  * pageSize )
+    // limit(10) = limit(pageSize)
 
-// or
-    Predicate<Movie> isPopular = m -> m.getLikes() >10;
     movies.stream()
-        .filter(isPopular)
-        .forEach(m -> System.out.println(m));
-
+        .skip(20)
+        .limit(10)
+        .forEach(m -> System.out.println(m.getTitle()));
 
   }
 }
