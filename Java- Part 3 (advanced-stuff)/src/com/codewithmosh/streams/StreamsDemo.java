@@ -11,10 +11,11 @@ public class StreamsDemo {
         new Movie("c", 30)
     );
 
-    // summarizing collectors
+    // collector for joining values using delimiter
    var result = movies.stream()
        .filter(m -> m.getLikes() > 10)
-       .collect(Collectors.summarizingInt(Movie::getLikes));
+       .map(Movie::getTitle)
+       .collect(Collectors.joining(", "));
 
     System.out.println(result);
 
