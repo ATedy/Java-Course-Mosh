@@ -9,13 +9,10 @@ public class StreamsDemo {
         new Movie("b", 20),
         new Movie("c", 30)
     );
-// Peek: used for showing after each stream done, and good for processing pipeline unlike forEach
+    // anyMatch, allMatch, noneMatch
     movies.stream()
-        .filter(m -> m.getLikes() > 10)
-        .peek(movie -> System.out.println("filtered " + movie.getTitle()))
-        .map(Movie::getTitle)
-        .peek(t ->System.out.println("Mapped: " + t))
-        .forEach(System.out::println);
+        .noneMatch(m ->m.getLikes() > 20);
+
   }
 }
 
