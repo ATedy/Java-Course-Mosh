@@ -5,16 +5,17 @@ import java.util.List;
 public class StreamsDemo {
   public static void show() {
     List<Movie> movies = List.of(
-        new Movie("b", 10),
         new Movie("a", 10),
-        new Movie("c", 20),
-        new Movie("d", 30)
+        new Movie("b", 20),
+        new Movie("c", 30)
     );
- // distinct stream is used for getting values with no duplication
-  movies.stream()
-      .map(Movie::getLikes)
-      .distinct()
-      .forEach(System.out::println);
+// Peek: used for showing after each stream done, and good for processing pipeline unlike forEach
+    movies.stream()
+        .filter(m -> m.getLikes() > 10)
+        .peek(movie -> System.out.println("filtered " + movie.getTitle()))
+        .map(Movie::getTitle)
+        .peek(t ->System.out.println("Mapped: " + t))
+        .forEach(System.out::println);
   }
 }
 
