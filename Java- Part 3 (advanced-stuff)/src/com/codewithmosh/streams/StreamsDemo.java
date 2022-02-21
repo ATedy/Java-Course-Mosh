@@ -6,16 +6,17 @@ import java.util.stream.Collectors;
 public class StreamsDemo {
   public static void show() {
     List<Movie> movies = List.of(
-        new Movie("a", 10),
-        new Movie("b", 20),
-        new Movie("c", 30)
+        new Movie("a", 10, Genre.THRILLER),
+        new Movie("b", 20, Genre.ACTION),
+        new Movie("c", 30, Genre.ACTION)
     );
 
-    // collector for joining values using delimiter
-   var result = movies.stream()
-       .filter(m -> m.getLikes() > 10)
-       .map(Movie::getTitle)
-       .collect(Collectors.joining(", "));
+var result = movies.stream()
+    .collect(Collectors.groupingBy(
+        Movie::getGenre,
+        Collectors.mapping(
+            Movie::getTitle,
+            Collectors.joining(", "))));
 
     System.out.println(result);
 
