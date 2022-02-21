@@ -9,21 +9,10 @@ public class StreamsDemo {
         new Movie("b", 15),
         new Movie("c", 20)
     );
-// imperative programming
-    int count = 0;
-    for(var movie: movies){
-      if (movie.getLikes() > 10)
-        count++;
-    }
-   // Declarative (functional) Programming
-    var count2 = movies.stream()
-        .filter(movie -> movie.getLikes() > 10)
-        .count();
+    movies.stream()
+        .map(movie -> movie.getTitle())
+        .forEach(name -> System.out.println(name));
+
   }
 }
 
-/**
- * Imperative Programming (expressing what needs to be done)
- * Declarative: how needs to be done
- *  Stream: is a sequence of objects, doesn't store data like a collection but its a way to get data out a collection
- */
