@@ -1,8 +1,13 @@
 package src.com.codewithmosh.concurrency;
 
 public class DownloadStatus {
+  // volatile keyword makes changes visible across threads
+  private volatile boolean isDone;
   private int totalBytes;
   private int totalFiles;
+  private Object totalBytesLock = new Object();
+
+
 
   public int getTotalFiles() {
     return totalFiles;
@@ -13,21 +18,23 @@ public class DownloadStatus {
   }
 
   // using the lock object will lock the thread until it finished then unlock it after
-  public synchronized  void incrementTotalBytes(){
+  public void incrementTotalBytes() {
+    synchronized (totalBytesLock) {
       totalBytes++;
     }
+  }
 
     public void incrementTotalFiles() {
-      synchronized (this){
         totalFiles++;
-      }
     }
 
 
+  public boolean isDone() {
+    return isDone;
   }
 
-
-
-
+  public synchronized void done() {
+    isDone = true;
+  }
 
 }

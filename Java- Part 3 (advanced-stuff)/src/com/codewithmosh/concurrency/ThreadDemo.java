@@ -1,29 +1,19 @@
 package src.com.codewithmosh.concurrency;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ThreadDemo {
-  public static void show() throws InterruptedException {
+  public static void show() {
+    var status = new DownloadStatus();
 
-    List<Thread> threads = new ArrayList<>();
-    List<DownloadFileTask> tasks = new ArrayList<>();
-    for (int i = 0; i < 10; i++) {
-      var task = new DownloadFileTask();
-      tasks.add(task);
+    var thread1 = new Thread(new DownloadFileTask());
+    var thread2 = new Thread(() ->{
+      while (!status.isDone()) {}
+      System.out.println(status.getTotalBytes());
+    });
 
-      Thread thread = new Thread(task);
-      thread.start();
-      threads.add(thread);
-    }
+    thread1.start();
+    thread2.start();
 
-    for (var thread: threads) {
-      thread.join();
-    }
 
-    tasks.stream()
-        .map(t ->t.getStatus().getTotalBytes())
-        .reduce(Integer::sum);
   }
 
 }
