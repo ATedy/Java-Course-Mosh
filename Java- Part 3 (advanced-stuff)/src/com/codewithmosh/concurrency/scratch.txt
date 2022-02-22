@@ -4,3 +4,13 @@
 - each process has at least one thread
 - Race condition: multiple threads are computing to modify same data
 - Visibility problem: a thread changes some data but aren't visible to the other threads
+
+ * Thread Safety Strategies:
+  - Confinement: not to share data across threads (restricting each thread to have its own data)
+  - Immutability: using unchanged object like Strings
+  - Synchronizations( not a good practise): preventing multiple threads from accessing same data concurrently using
+    locks where only one thread at a time execute that part(but code will run sequentially
+    and leading to deadlock: where 2 threads waits each other indefinitely
+
+  - Atomic objects: this classes be executed as one single atomic operation
+  - Partitioning: dividing data into segments that can be accesses concurrently

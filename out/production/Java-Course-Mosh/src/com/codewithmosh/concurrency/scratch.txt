@@ -2,3 +2,5 @@
 - Process: Instance of a programme or an application
 - Thread: a sequence of instructions
 - each process has at least one thread
+- Race condition: multiple threads are computing to modify same data
+- Visibility problem: a thread changes some data but aren't visible to the other threads
