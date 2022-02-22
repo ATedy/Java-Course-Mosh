@@ -1,0 +1,4 @@
+
+- Process: Instance of a programme or an application
+- Thread: a sequence of instructions
+- each process has at least one thread
