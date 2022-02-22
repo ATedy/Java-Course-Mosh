@@ -4,24 +4,19 @@ public class DownloadFileTask implements Runnable{
 
   private DownloadStatus status;
 
-  public DownloadFileTask() {
-    this.status = new DownloadStatus();
+  public DownloadFileTask(DownloadStatus status) {
+    this.status = status;
   }
 
   @Override
   public void run() {
 
-    for (int  i = 0; i < 1_000_000; i++) {
+    for (int  i = 0; i < 100_000; i++) {
       if (Thread.currentThread().isInterrupted())return;
       status.incrementTotalBytes();
     }
 
     status.done();
-    // telling the other thread state 1st thread is changed
-    synchronized (status){
-      status.notifyAll();
-    }
-
     System.out.println("Download complete: " + Thread.currentThread().getName());
   }
 

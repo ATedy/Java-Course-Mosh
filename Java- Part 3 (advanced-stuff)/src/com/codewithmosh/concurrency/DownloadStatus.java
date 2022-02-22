@@ -1,27 +1,26 @@
 package src.com.codewithmosh.concurrency;
 
-public class DownloadStatus {
-  // volatile keyword makes changes visible across threads
-  private volatile boolean isDone;
-  private int totalBytes;
-  private int totalFiles;
-  private Object totalBytesLock = new Object();
+import java.util.concurrent.atomic.AtomicInteger;
 
+public class DownloadStatus {
+  private volatile boolean isDone;
+  private AtomicInteger totalBytes = new AtomicInteger();
+  private int totalFiles;
 
 
   public int getTotalFiles() {
     return totalFiles;
   }
 
+  // Atomic type works by compare and swap
   public int getTotalBytes() {
-    return totalBytes;
+    return totalBytes.get();
   }
 
-  // using the lock object will lock the thread until it finished then unlock it after
+  // multiple threads can modify this threads without racing e other
   public void incrementTotalBytes() {
-    synchronized (totalBytesLock) {
-      totalBytes++;
-    }
+      totalBytes.incrementAndGet();
+
   }
 
     public void incrementTotalFiles() {
