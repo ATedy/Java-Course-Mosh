@@ -14,3 +14,6 @@
 
   - Atomic objects: this classes be executed as one single atomic operation
   - Partitioning: dividing data into segments that can be accesses concurrently
+
+
+- synchronous collections: wraps a normal collection and make it synchronous
