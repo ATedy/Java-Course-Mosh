@@ -2,16 +2,15 @@ package src.com.codewithmosh.concurrency;
 
 public class ThreadDemo {
   public static void show() throws InterruptedException {
-    System.out.println(Thread.currentThread().getName());
+    Thread thread = new Thread(new DownloadFileTask());
+    thread.start();
 
-        for (int  i = 0; i < 5; i++) {
-          Thread thread = new Thread(new DownloadFileTask());
-          thread.start();
-          // join block the 2nd thread from starting until thr 1st one finishes
-          thread.join(5000);
+    Thread.sleep(1000);
+    System.out.println("file is ready to be scanned");
 
-          System.out.println("file is ready to be scanned");
-    }
+    // this interrupt doesn't actually interrupt the thread, it sends an interrupt message instead and we check the
+    // request and handle it
+    thread.interrupt();
 
   }
 
