@@ -1,32 +1,16 @@
 package src.com.codewithmosh.concurrency;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class ThreadDemo {
+  // to use thread safe hashmap with multiple threads we use ConcurrentHashMap instead of the normal one
   public static void show() throws InterruptedException {
-    // we are wrapping our arraylist inside synchronous collections
-    Collection<Integer> collection = Collections.synchronizedCollection(new ArrayList<>());
-    var thread1 = new Thread(() ->{
-      collection.addAll(Arrays.asList(1,2,3));
-    });
-
-    var thread2 = new Thread(() ->{
-      collection.addAll(Arrays.asList(4,5,6));
-    });
-
-    thread1.start();
-    thread2.start();
-
-    thread1.join();
-    thread2.join();
-
-    System.out.println(collection);
-
-
+    Map<Integer, String> map = new ConcurrentHashMap<>();
+    map.put(1, "a");
+    map.get(1);
+    map.remove(1);
     }
 
 }
