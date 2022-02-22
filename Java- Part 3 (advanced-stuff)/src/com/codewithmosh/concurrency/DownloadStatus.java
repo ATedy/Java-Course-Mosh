@@ -1,10 +1,10 @@
 package src.com.codewithmosh.concurrency;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 public class DownloadStatus {
   private volatile boolean isDone;
-  private AtomicInteger totalBytes = new AtomicInteger();
+  private LongAdder totalBytes = new LongAdder();
   private int totalFiles;
 
 
@@ -12,14 +12,13 @@ public class DownloadStatus {
     return totalFiles;
   }
 
-  // Atomic type works by compare and swap
   public int getTotalBytes() {
-    return totalBytes.get();
+    // will call the sum value internally
+    return totalBytes.intValue();
   }
 
-  // multiple threads can modify this threads without racing e other
   public void incrementTotalBytes() {
-      totalBytes.incrementAndGet();
+      totalBytes.increment();
 
   }
 
