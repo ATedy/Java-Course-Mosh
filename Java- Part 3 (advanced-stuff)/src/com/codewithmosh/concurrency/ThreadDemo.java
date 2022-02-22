@@ -21,12 +21,9 @@ public class ThreadDemo {
       thread.join();
     }
 
-    var totalBytes = tasks.stream()
+    tasks.stream()
         .map(t ->t.getStatus().getTotalBytes())
         .reduce(Integer::sum);
-
-    // we will have 100_000 as expected as threads aren't modifying a shared object
-    System.out.println(totalBytes);
   }
 
 }
