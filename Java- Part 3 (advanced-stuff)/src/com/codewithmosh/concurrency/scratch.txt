@@ -17,3 +17,10 @@
 
 
 - synchronous collections: wraps a normal collection and make it synchronous
+
+
+*** *******
+
+ - Thread pool: pool of threads called worker threads( has a fixed number of threads. so no fear of going  out memory
+   it will use the available threads and put the remaining task in a waiting queue
+
