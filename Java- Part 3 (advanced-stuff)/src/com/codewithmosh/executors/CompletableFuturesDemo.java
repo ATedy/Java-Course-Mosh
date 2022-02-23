@@ -1,25 +1,16 @@
 package src.com.codewithmosh.executors;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-
 public class CompletableFuturesDemo {
 
   public static void show() {
-    var future = CompletableFuture.supplyAsync(() ->{
-      LongTask.simulate();
-      return 1;
-    });
+   var service = new FlightService();
+   service.getQuote("site1")
+       .thenAccept(System.out::println);
 
+   // delay for the program to get a quote from the site
     try {
-     var result =  future
-          .completeOnTimeout(1, 1,  TimeUnit.SECONDS)
-          .get();
-      System.out.println(result);
+      Thread.sleep(10_000);
     } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (ExecutionException e) {
       e.printStackTrace();
     }
   }
