@@ -1,24 +1,17 @@
 package src.com.codewithmosh.executors;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 public class CompletableFuturesDemo {
+  public static int toFahrenheit (int celsius){
+    return (int) (celsius * 1.8) + 32;
+
+  }
+
   public static void show() {
-    var future = CompletableFuture.supplyAsync(() -> {
-      System.out.println("Getting the current weather");
-      throw new IllegalArgumentException();
-    });
-
-    // giving a default value in case the remote temp doesn't exist using exceptionally
-    try {
-     var temperature =  future.exceptionally(ex ->1).get();
-      System.out.println(temperature);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    } catch (ExecutionException e) {
-      e.printStackTrace();
-    }
-
+    var future = CompletableFuture.supplyAsync(() -> 20);
+    var result = future.
+        thenApply(CompletableFuturesDemo::toFahrenheit)
+        .thenAccept(f -> System.out.println(f));
   }
 }
