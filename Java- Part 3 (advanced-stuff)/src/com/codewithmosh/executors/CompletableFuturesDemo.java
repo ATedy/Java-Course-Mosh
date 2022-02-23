@@ -1,19 +1,26 @@
 package src.com.codewithmosh.executors;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class CompletableFuturesDemo {
 
   public static void show() {
-   var first =  CompletableFuture.supplyAsync(() ->{
-     LongTask.simulate();
-     return 20;
-   });
-    var second =  CompletableFuture.supplyAsync(()-> 20 );
+    var future = CompletableFuture.supplyAsync(() ->{
+      LongTask.simulate();
+      return 1;
+    });
 
-     CompletableFuture
-         .anyOf(first, second)
-             .thenAccept(temp -> System.out.println(temp));
-
+    try {
+     var result =  future
+          .completeOnTimeout(1, 1,  TimeUnit.SECONDS)
+          .get();
+      System.out.println(result);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (ExecutionException e) {
+      e.printStackTrace();
+    }
   }
 }
