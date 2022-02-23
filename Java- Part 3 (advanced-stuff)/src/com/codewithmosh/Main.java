@@ -1,6 +1,6 @@
 package src.com.codewithmosh;
 
-import src.com.codewithmosh.concurrency.ExecutorsDemo;
+import src.com.codewithmosh.executors.ExecutorsDemo;
 
 public class Main {
 

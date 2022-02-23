@@ -1,3 +1,5 @@
+package src.com.codewithmosh.executors;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
@@ -6,7 +8,7 @@ public class ExecutorsDemo {
     var executor = Executors.newFixedThreadPool(2);
 
     try {
-      var future = executor.submit(() -> {
+      var future =  executor.submit(() ->{
         LongTask.simulate();
         return 1;
       });
@@ -20,8 +22,11 @@ public class ExecutorsDemo {
         e.printStackTrace();
       }
     }
+
     finally {
       executor.shutdown();
     }
+
   }
+
 }
