@@ -1,13 +1,16 @@
 package src.com.codewithmosh.executors;
 
+import java.util.stream.Collectors;
+
 public class CompletableFuturesDemo {
 
   public static void show() {
    var service = new FlightService();
-   service.getQuote("site1")
-       .thenAccept(System.out::println);
+   service.getQuotes()
+       .map(future -> future.thenAccept(System.out::println))
+       .collect(Collectors.toList());
 
-   // delay for the program to get a quote from the site
+
     try {
       Thread.sleep(10_000);
     } catch (InterruptedException e) {
