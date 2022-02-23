@@ -3,15 +3,18 @@ package src.com.codewithmosh.executors;
 import java.util.concurrent.CompletableFuture;
 
 public class CompletableFuturesDemo {
-  public static int toFahrenheit (int celsius){
-    return (int) (celsius * 1.8) + 32;
-
-  }
 
   public static void show() {
-    var future = CompletableFuture.supplyAsync(() -> 20);
-    var result = future.
-        thenApply(CompletableFuturesDemo::toFahrenheit)
-        .thenAccept(f -> System.out.println(f));
+    var first = CompletableFuture.supplyAsync(() -> "20USD")
+        .thenApply(str -> {
+          var price = str.replace("USD", "");
+          return Integer.parseInt(price);
+    });
+
+    var second = CompletableFuture.supplyAsync(() -> 0.9);
+
+    first.thenCombine(second, (price, ex) -> price * ex)
+        .thenAccept(result -> System.out.println(result));
+
   }
 }
