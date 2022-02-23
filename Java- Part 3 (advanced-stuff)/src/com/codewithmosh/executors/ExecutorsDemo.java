@@ -13,9 +13,8 @@ public class ExecutorsDemo {
         return 1;
       });
 
-      System.out.println("Do more work");
-
       try {
+        // get here is a blocking method
         var result = future.get();
         System.out.println(result);
       } catch (InterruptedException | ExecutionException e) {
